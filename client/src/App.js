@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { Component } from 'react';
 
 //Custom imports as part of Assessmake21
-import Login from './components/screens/login';
+import WashingMachineFacePlate from './components/screens/wmfaceplate';
 
 
 
@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route path="/" exact component={() => <Login setAppState={this.setAppState} />}/>
+        <Route path="/" exact component={() => <WashingMachineFacePlate setAppState={this.setAppState} />}/>
         <Redirect from="*" to="/" />
       </Router>
     );

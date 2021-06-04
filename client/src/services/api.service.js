@@ -5,12 +5,12 @@ class ApiService {
     API_URL = '';
 
     constructor() {
-		this.API_URL = "http://vma48.scss.tcd.ie:8083/api/"; //For VM
-        // this.API_URL = "http://localhost:8083/api/";
+	
+        this.API_URL = "http://localhost:5000/api/";
 		
     }
 
-    // Private function
+    // Private functions
     apiCall(method, endpoint, needsAuthentication = true, body = null, headers = null) {
         let tempHeaders = !!headers ? headers : {}
         if (needsAuthentication) tempHeaders['Authorization'] = `Bearer ${this.getToken()}`

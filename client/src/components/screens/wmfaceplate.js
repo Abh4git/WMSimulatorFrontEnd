@@ -15,7 +15,9 @@ import SpeedDialTooltipOpen from '../speeddialtooltipopen'
 import Icon from '@material-ui/core/Icon';
 import PlayIcon from '@material-ui/icons/PlayArrow';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-class Login extends Component {
+
+import EngineService from '../../services/engineservices';
+class WashingMachineFacePlate extends Component {
     
     constructor(props) {
         super(props);
@@ -24,15 +26,25 @@ class Login extends Component {
             rememberMe: false,
             errorMessage: undefined,
             drumState: false,
-            started: false
+            started: false,
+            engineMode: 1,
         }
 
        
         
         this.changeLanguage=this.changeLanguage.bind(this);
-        this.makeTimer()
+        //this.makeTimer()
         
     }
+
+    componentDidMount() 
+    {
+     
+
+    }
+
+  
+    
 
     makeTimer(){
         setInterval(() => {
@@ -91,7 +103,11 @@ class Login extends Component {
         console.log(`Start Stop command`);
         if (!this.state.started)
         {
-            this.setState({started: true});
+            EngineService.startEngine(this.state.engineMode).then(response => {
+                this.setState({started: true});
+                console.log('Started Engine' );
+                });
+           
         } else
         {
             this.setState({started: false});
@@ -183,5 +199,5 @@ class Login extends Component {
     }
 }
 
-export default withRouter( withTranslation()(Login));
+export default withRouter( withTranslation()(WashingMachineFacePlate));
 
