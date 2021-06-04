@@ -17,8 +17,17 @@ import PlayIcon from '@material-ui/icons/PlayArrow';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
 import EngineService from '../../services/engineservices';
+import { w3cwebsocket as W3CWebSocket } from "websocket";
+import socketIOClient from "socket.io-client";
+const ENDPOINT = "http://localhost:5000/";
+
+//const client = new W3CWebSocket('ws://localhost:5000/ws')
+//var client= new W3CWebSocket('ws://localhost:5000/web')
 class WashingMachineFacePlate extends Component {
     
+    
+    //client = new WebSocket('ws://localhost:5000/ws')
+
     constructor(props) {
         super(props);
         this.state = {
@@ -37,10 +46,14 @@ class WashingMachineFacePlate extends Component {
         
     }
 
-    componentDidMount() 
+    componentWillMount() 
     {
-     
-
+        const socket = socketIOClient(ENDPOINT);
+    socket.on("FromAPI", data => {
+        this.setState({drumState:true});
+      
+      ;
+    });
     }
 
   
