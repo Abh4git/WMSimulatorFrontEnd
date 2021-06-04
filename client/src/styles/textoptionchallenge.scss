@@ -1,0 +1,12 @@
+@import 'colours';
+
+#textoptionchallenge-component {
+    border: 2px solid $colour-orange;
+    border-radius: 7px;
+    padding: 10px;
+    textarea {
+        border: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

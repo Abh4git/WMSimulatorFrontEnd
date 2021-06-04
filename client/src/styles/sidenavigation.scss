@@ -1,0 +1,11 @@
+@import '../styles/colours';
+
+#sidenavigation-component {
+    button {
+        border-radius: 30px;
+        background-color: $colour-orange;
+        border: 0;
+        color: white;
+        font-weight: 600;
+    }
+}

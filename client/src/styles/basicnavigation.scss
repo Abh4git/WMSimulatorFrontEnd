@@ -1,0 +1,17 @@
+@import '../styles/colours';
+
+#basicnavigation-component {
+    .topbar {
+        padding-top: 50px;
+        padding-bottom: 20px;
+        img {
+            height: 100px;
+        }
+        button {
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+            color: black;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@import '../styles/colours';
+
+#login-component {
+    position: relative;
+    padding-top: 150px;
+    color: $colour-purple;
+    font-weight: 500;
+    margin: auto;
+    form {
+        label { width: 100%; }
+        > * { margin-top: 10px;}
+        .errorMessage {
+            color: red;
+        }
+        input[type=submit] {
+            color: $font-colour-secondary;
+            background-color: $colour-orange;
+            border-radius: 20px;
+            width: 100%;
+        }
+        input[type=checkbox] {
+            border: 1px solid $colour-orange;
+            background-color: transparent;
+        }
+        input[type=text] {
+            background-color: $colour-orange-muted;
+            color: $font-colour;
+            letter-spacing: 20px;
+            width: 220px;
+            text-transform: uppercase;
+        }
+    }
+    .logo {
+        max-width: 350px;
+    }
+    #languageselector-component {
+        position: absolute;
+        top: 100px;
+        right: 0;
+    }
+}

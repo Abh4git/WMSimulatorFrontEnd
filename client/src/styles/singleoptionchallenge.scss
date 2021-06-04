@@ -1,0 +1,32 @@
+@import 'colours';
+
+#singleoptionchallenge-component {
+    input { display: none; }
+    .answer {
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px -10px;
+        margin-bottom: 20px;
+        position: relative;
+        width: 100%;
+        .text { padding-left: 20px; }
+        .mark {
+            display: inline-block;
+            $mark-size: 30px;
+            width: $mark-size;
+            height: $mark-size;
+            border: 4px solid $colour-orange;
+            border-radius: 50%;
+            background-color: transparent;
+        }
+        input:checked ~ .mark::after {
+            content: "";
+            display: block;
+            $check-size: 100%;
+            width: $check-size;
+            height: $check-size;
+            border-radius: 50%;
+            background-color: $colour-orange;
+        }
+    }
+}

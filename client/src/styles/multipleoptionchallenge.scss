@@ -1,0 +1,34 @@
+@import 'colours';
+
+#multipleoptionchallenge-component {
+    input { display: none;}
+    .answer {
+        padding-right: 20px;
+        .box {
+            padding: 10px 15px;
+            border-radius: 10px;
+            background-color: lightgrey;
+            .text { padding-left: 20px; }
+            .mark {
+                display: inline-block;
+                $mark-size: 20px;
+                width: $mark-size;
+                height: $mark-size;
+                border: 3px solid black;
+                border-radius: 5px;
+                background-color: transparent;
+            }
+        }
+        input:checked ~ .box {
+            background-color: $colour-orange;
+            > .mark::after {
+                display: block;
+                position: absolute;
+                content: "\2713";
+                transform: translate(-5px, -20px);
+                font-size: 30px;
+                color: black;
+            }
+        }
+    }
+}

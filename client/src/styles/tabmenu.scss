@@ -1,0 +1,13 @@
+@import './colours';
+
+#tabmenu-component {
+        margin-bottom: 20px;
+        a {
+            color: grey;
+            font-weight: 600;
+            &[aria-selected=true] {
+                border-top: 3px solid $colour-orange;
+                color: $colour-orange;
+            }
+        }
+}
