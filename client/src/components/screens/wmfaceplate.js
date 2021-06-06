@@ -19,7 +19,7 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import EngineService from '../../services/engineservices';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://localhost:5000/";
+const ENDPOINT = "http://localhost:5000";
 
 //const client = new W3CWebSocket('ws://localhost:5000/ws')
 //var client= new W3CWebSocket('ws://localhost:5000/web')
@@ -49,11 +49,26 @@ class WashingMachineFacePlate extends Component {
     componentWillMount() 
     {
         const socket = socketIOClient(ENDPOINT);
-    socket.on("FromAPI", data => {
-        this.setState({drumState:true});
+       
+        socket.on('connect', (resp) => {
+            var dataval = resp;
+            console.log(dataval);
+            this.setState({drumState:true});
+            
+          });
+
+        socket.on('my response', (resp)=> {
+            console.log('Received: ' + resp.data );
+        });
+          
       
+    
+    /*socket.on('connect', (data) => {
+        this.setState({drumState:true});
+       // socket.send('connect', { data: "Connected to client successfully"});
+        //socket.send("Connected to client successfully");
       ;
-    });
+    });*/
     }
 
   
