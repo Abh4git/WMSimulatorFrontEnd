@@ -11,7 +11,7 @@ class ApiService {
     }
 
     // Private functions
-    apiCall(method, endpoint, needsAuthentication = true, body = null, headers = null) {
+    async apiCall(method, endpoint, needsAuthentication = true, body = null, headers = null) {
         let tempHeaders = !!headers ? headers : {}
         if (needsAuthentication) tempHeaders['Authorization'] = `Bearer ${this.getToken()}`
         return axios({
@@ -23,23 +23,23 @@ class ApiService {
         })
     }
 
-    get(endpoint, needsAuthentication = true) {
+    async get(endpoint, needsAuthentication = true) {
         return this.apiCall('GET', endpoint, needsAuthentication)
     }
 
-    post(endpoint, body, needsAuthentication = true) {
+    async post(endpoint, body, needsAuthentication = true) {
         return this.apiCall('POST', endpoint, needsAuthentication, body)
     }
 
-    put(endpoint, body, needsAuthentication = true) {
+    async put(endpoint, body, needsAuthentication = true) {
         return this.apiCall('PUT', endpoint, needsAuthentication, body)
     }
 
-    patch(endpoint, body, needsAuthentication = true) {
+    async patch(endpoint, body, needsAuthentication = true) {
         return this.apiCall('PATCH', endpoint, needsAuthentication, body)
     }
 
-    delete(endpoint, needsAuthentication = true) {
+    async delete(endpoint, needsAuthentication = true) {
         return this.apiCall('DELETE', endpoint, needsAuthentication)
     }
 
